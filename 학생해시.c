@@ -2,11 +2,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "parson.h"
 
 #define TABLE_SIZE 2599999
 #define NAME_SIZE 100
 #define DATA_SIZE 256
-#define LATE_SIZE 10
+#define LATE_SIZE 20
 int data_numbers = 0;
 
 typedef struct {
@@ -68,24 +69,9 @@ void hash_chain_search(int key) {
 	printf("=======================================\n");
 }
 
-void csv_data_write(int key) {
-	FILE* fpw = NULL;
-	if ((fpw = fopen("studentData.csv", "w")) == NULL) {
-		printf("파일 생성 오류\n");
-		fclose(fpw);
-		return;
-	}
-	char lateYes = 'T';
-	char lateNo = 'F';
-	struct list* node;
-	int hash_value = hash_function(key);
-	for (node = hash_table[hash_value]; node; node = node->link) {
-		fprintf(fpw, "%d, %s, 0%d, %c", node->item.key, node->item.name, node->item.phone_number, lateYes);
-	}
-	fclose(fpw);
-}
 
-// csv 파일 읽어와서 해시에 등록할 수 있도록 값 저장하는 함수
+
+// csv 파일 읽어와서 해시에 등록할 수 있도록 값 저장하는 함수, 폐기
 void csv_data_read() {
 	FILE* fpr;
 	char str[DATA_SIZE];
@@ -130,15 +116,60 @@ void csv_data_read() {
 	fclose(fpr);
 }
 
+void json_file_reading() {
+	element data;
 
+	JSON_Value* root_Value = json_parse_file("studentData.json");
+	JSON_Object* root_Object = json_value_get_object(root_Value);
+
+	JSON_Array* data_Array = json_object_get_array(root_Object, "studentInfo");
+	size_t array_size = json_array_get_count(data_Array);
+	for (size_t i = 0; i < array_size; i++) {
+		JSON_Object* item = json_array_get_object(data_Array, i);
+		if (item != NULL) {
+			data.key = (int)json_object_get_number(item, "studentNumber");
+			printf("학번 : %d\n", data.key);
+			strcpy(data.name, json_object_get_string(item, "name"));
+			printf("이름 : %s\n", data.name);
+			data.phone_number = (int)json_object_get_number(item, "phoneNumber");
+			printf("전화번호 : %d\n", data.phone_number);
+
+			if (json_object_get_string(item, "dueDateOverCheck")) {
+				strcpy(data.late, "true");
+			}
+			else {
+				strcpy(data.late, "false");
+			}
+			//strcpy(data.late, json_object_get_string(item, "dueDateOverCheck"));
+			printf("연체 여부 : %s\n", data.late);
+			hash_chain_add(data, hash_table);
+			printf("\n");
+		}
+	}
+	json_value_free(root_Value);
+}
+
+void json_file_writing(int student_num, char lateChek[LATE_SIZE]) {
+	int k;
+	JSON_Value* root_Value = json_parse_file("studentData.json");
+	JSON_Object* root_Object = json_value_get_object(root_Value);
+
+	JSON_Array* data_Array = json_object_get_array(root_Object, "studentInfo");
+	size_t array_size = json_array_get_count(data_Array);
+
+	JSON_Object* change = json_array_get_object(data_Array, 0);
+	if (change != NULL) {
+		json_object_set_number(change, "studentNumber", student_num);
+	}
+	json_value_free(root_Value);
+}
 
 int main() {
 	int choice;
 	int student_num;
 
-	csv_data_read();
-
 	while (1) {
+		json_file_reading();
 		printf("선택지 : 1. 학생조회 2. 종료 3. (미완성기능)파일 업데이트=> ");
 		scanf_s("%d", &choice);
 		if (choice == 1) {
@@ -151,7 +182,7 @@ int main() {
 		else if (choice == 3) {
 			printf("학번 입력 => ");
 			scanf_s("%d", &student_num);
-			csv_data_write(student_num);
+			json_file_writing(student_num, "false");
 		}
 		else
 			printf("다시 입력하십시오\n\n");

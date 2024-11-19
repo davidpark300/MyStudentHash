@@ -127,7 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="parson.c" />
     <ClCompile Include="학생해시.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="parson.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

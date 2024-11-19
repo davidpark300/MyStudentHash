@@ -1,0 +1,34 @@
+{
+  "studentInfo": [
+    {
+      "studentNumber": 2171114,
+      "name": "박준민",
+      "phoneNumber": 1030009415,
+      "dueDateOverCheck": false
+    },
+    {
+      "studentNumber": 2171115,
+      "name": "홍성환",
+      "phoneNumber": 1041618190,
+      "dueDateOverCheck": false
+    },
+    {
+      "studentNumber": 2071478,
+      "name": "엄새연",
+      "phoneNumber": 1094874630,
+      "dueDateOverCheck": false
+    },
+    {
+      "studentNumber": 2171117,
+      "name": "최성준",
+      "phoneNumber": 1033804283,
+      "dueDateOverCheck": false
+    },
+    {
+      "studentNumber": 2371041,
+      "name": "이소연",
+      "phoneNumber": 1031652256,
+      "dueDateOverCheck": false
+    }
+  ]
+}

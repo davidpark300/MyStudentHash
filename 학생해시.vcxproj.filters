@@ -18,5 +18,13 @@
     <ClCompile Include="학생해시.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="parson.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="parson.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

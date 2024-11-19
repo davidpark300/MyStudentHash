@@ -5,6 +5,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{4D61C4E7-0B3D-423A-B8E1-F84130DA6F35}|\uD559\uC0DD\uD574\uC2DC.vcxproj|C:\\Users\\david\\Desktop\\only_c_drive\\algorithm\\\uAE30\uB9D0\uD504\uB85C\uC81D\uD2B8\\\uD559\uC0DD\uD574\uC2DC\\\uD559\uC0DD\uD574\uC2DC.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{4D61C4E7-0B3D-423A-B8E1-F84130DA6F35}|\uD559\uC0DD\uD574\uC2DC.vcxproj|solutionrelative:\uD559\uC0DD\uD574\uC2DC.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D61C4E7-0B3D-423A-B8E1-F84130DA6F35}|\uD559\uC0DD\uD574\uC2DC.vcxproj|C:\\Users\\david\\Desktop\\only_c_drive\\algorithm\\\uAE30\uB9D0\uD504\uB85C\uC81D\uD2B8\\\uD559\uC0DD\uD574\uC2DC\\parson.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4D61C4E7-0B3D-423A-B8E1-F84130DA6F35}|\uD559\uC0DD\uD574\uC2DC.vcxproj|solutionrelative:parson.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D61C4E7-0B3D-423A-B8E1-F84130DA6F35}|\uD559\uC0DD\uD574\uC2DC.vcxproj|C:\\Users\\david\\Desktop\\only_c_drive\\algorithm\\\uAE30\uB9D0\uD504\uB85C\uC81D\uD2B8\\\uD559\uC0DD\uD574\uC2DC\\parson.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4D61C4E7-0B3D-423A-B8E1-F84130DA6F35}|\uD559\uC0DD\uD574\uC2DC.vcxproj|solutionrelative:parson.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +22,33 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "parson.c",
+              "DocumentMoniker": "C:\\Users\\david\\Desktop\\only_c_drive\\algorithm\\\uAE30\uB9D0\uD504\uB85C\uC81D\uD2B8\\\uD559\uC0DD\uD574\uC2DC\\parson.c",
+              "RelativeDocumentMoniker": "parson.c",
+              "ToolTip": "C:\\Users\\david\\Desktop\\only_c_drive\\algorithm\\\uAE30\uB9D0\uD504\uB85C\uC81D\uD2B8\\\uD559\uC0DD\uD574\uC2DC\\parson.c",
+              "RelativeToolTip": "parson.c",
+              "ViewState": "AQIAAJ4AAAAAAAAAAADwv6oAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-11-18T15:27:08.687Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "parson.h",
+              "DocumentMoniker": "C:\\Users\\david\\Desktop\\only_c_drive\\algorithm\\\uAE30\uB9D0\uD504\uB85C\uC81D\uD2B8\\\uD559\uC0DD\uD574\uC2DC\\parson.h",
+              "RelativeDocumentMoniker": "parson.h",
+              "ToolTip": "C:\\Users\\david\\Desktop\\only_c_drive\\algorithm\\\uAE30\uB9D0\uD504\uB85C\uC81D\uD2B8\\\uD559\uC0DD\uD574\uC2DC\\parson.h",
+              "RelativeToolTip": "parson.h",
+              "ViewState": "AQIAAJQAAAAAAAAAAAAAALEAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-18T15:18:58.176Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -24,7 +57,7 @@
               "RelativeDocumentMoniker": "\uD559\uC0DD\uD574\uC2DC.c",
               "ToolTip": "C:\\Users\\david\\Desktop\\only_c_drive\\algorithm\\\uAE30\uB9D0\uD504\uB85C\uC81D\uD2B8\\\uD559\uC0DD\uD574\uC2DC\\\uD559\uC0DD\uD574\uC2DC.c",
               "RelativeToolTip": "\uD559\uC0DD\uD574\uC2DC.c",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAANAAAA",
+              "ViewState": "AQIAAJwAAAAAAAAAAAAAAKsAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-11-12T13:10:47.722Z",
               "EditorCaption": ""
