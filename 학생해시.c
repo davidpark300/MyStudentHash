@@ -7,14 +7,12 @@
 #define TABLE_SIZE 2599999
 #define NAME_SIZE 100
 #define DATA_SIZE 256
-#define LATE_SIZE 20
-int data_numbers = 0;
 
 typedef struct {
 	int key;
 	char name[NAME_SIZE];
 	int phone_number;
-	char late[LATE_SIZE];
+	int lateNumber;
 } element;
 
 struct list {
@@ -43,7 +41,7 @@ void hash_chain_add(element item, struct list* ht[]) {
 	ptr->item.key = item.key;
 	strcpy(ptr->item.name, item.name);
 	ptr->item.phone_number = item.phone_number;
-	strcpy(ptr->item.late, item.late);
+	ptr->item.lateNumber = item.lateNumber;
 
 	ptr->link = NULL;
 
@@ -63,13 +61,23 @@ void hash_chain_search(int key) {
 		return;
 	}
 	for (node = hash_table[hash_value]; node; node = node->link) {
-		printf("%d, %s, 0%d", node->item.key, node->item.name, node->item.phone_number);
+		printf("%d, %s, 0%d %d", node->item.key, node->item.name, node->item.phone_number, node->item.lateNumber);
 	}
 	printf("\n");
 	printf("=======================================\n");
 }
 
+void hash_chain_change(int key, int change_value) {
+	struct list* node;
+	int hash_value = hash_function(key);
+	if (hash_table[key] == NULL) {
+		printf("등록된 학번이 없습니다.\n");
+		return;
+	}
+	node = hash_table[hash_value];
+	node->item.lateNumber = change_value;
 
+}
 
 // csv 파일 읽어와서 해시에 등록할 수 있도록 값 저장하는 함수, 폐기
 void csv_data_read() {
@@ -108,9 +116,9 @@ void csv_data_read() {
 		//printf("\n");
 
 		sub = strtok(NULL, ",");
-		strcpy(items.late, sub);
+		//strcpy(items.late, sub);
 
-		data_numbers++;
+
 		hash_chain_add(items, hash_table);
 	}
 	fclose(fpr);
@@ -129,19 +137,16 @@ void json_file_reading() {
 		if (item != NULL) {
 			data.key = (int)json_object_get_number(item, "studentNumber");
 			printf("학번 : %d\n", data.key);
+
 			strcpy(data.name, json_object_get_string(item, "name"));
 			printf("이름 : %s\n", data.name);
+
 			data.phone_number = (int)json_object_get_number(item, "phoneNumber");
 			printf("전화번호 : %d\n", data.phone_number);
 
-			if (json_object_get_string(item, "dueDateOverCheck")) {
-				strcpy(data.late, "true");
-			}
-			else {
-				strcpy(data.late, "false");
-			}
-			//strcpy(data.late, json_object_get_string(item, "dueDateOverCheck"));
-			printf("연체 여부 : %s\n", data.late);
+			data.lateNumber = json_object_get_number(item, "dueDateOverCheck");
+			printf("연체 여부 : %d\n", data.lateNumber);
+
 			hash_chain_add(data, hash_table);
 			printf("\n");
 		}
@@ -149,8 +154,8 @@ void json_file_reading() {
 	json_value_free(root_Value);
 }
 
-void json_file_writing(int student_num, char lateChek[LATE_SIZE]) {
-	int k;
+void json_file_writing(int student_num, int late_check) {
+
 	JSON_Value* root_Value = json_parse_file("studentData.json");
 	JSON_Object* root_Object = json_value_get_object(root_Value);
 
@@ -159,8 +164,12 @@ void json_file_writing(int student_num, char lateChek[LATE_SIZE]) {
 
 	JSON_Object* change = json_array_get_object(data_Array, 0);
 	if (change != NULL) {
-		json_object_set_number(change, "studentNumber", student_num);
+		int change_value = json_object_get_number(change, "dueDateOverCheck");
+		change_value += 1;
+		json_object_set_number(change, "dueDateOverCheck", change_value);
+		hash_chain_change(student_num, change_value);
 	}
+	json_serialize_to_file_pretty(root_Value, "studentData.json"); // Json 파일 변경점 저장, 이 코드가 있어야 JSON파일이 수정됨
 	json_value_free(root_Value);
 }
 
@@ -168,8 +177,9 @@ int main() {
 	int choice;
 	int student_num;
 
+	json_file_reading();
+
 	while (1) {
-		json_file_reading();
 		printf("선택지 : 1. 학생조회 2. 종료 3. (미완성기능)파일 업데이트=> ");
 		scanf_s("%d", &choice);
 		if (choice == 1) {
@@ -182,11 +192,12 @@ int main() {
 		else if (choice == 3) {
 			printf("학번 입력 => ");
 			scanf_s("%d", &student_num);
-			json_file_writing(student_num, "false");
+			json_file_writing(student_num, 0);
+			hash_chain_search(student_num);
 		}
 		else
 			printf("다시 입력하십시오\n\n");
 	}
-
+	json_file_reading();
 	return 0;
 }

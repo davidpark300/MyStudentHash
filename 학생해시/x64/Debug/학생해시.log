@@ -1,3 +1,4 @@
 ﻿  학생해시.c
-C:\Users\david\Desktop\only_c_drive\algorithm\기말프로젝트\학생해시\학생해시.c(153,6): warning C4101: 'late' :참조되지 않은 지역 변수입니다.
-  학생해시.vcxproj -> C:\Users\david\Desktop\only_c_drive\algorithm\기말프로젝트\학생해시\x64\Debug\학생해시.exe
+C:\Users\hodu3\OneDrive\바탕 화면\학교\알고리즘\기말프로젝트\JSON까지한거\-\학생해시.c(147,22): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\hodu3\OneDrive\바탕 화면\학교\알고리즘\기말프로젝트\JSON까지한거\-\학생해시.c(167,22): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  학생해시.vcxproj -> C:\Users\hodu3\OneDrive\바탕 화면\학교\알고리즘\기말프로젝트\JSON까지한거\-\x64\Debug\학생해시.exe
