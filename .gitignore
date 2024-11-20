@@ -1,4 +1,8 @@
-﻿# Prerequisites
+﻿# Created by https://www.toptal.com/developers/gitignore/api/c,visualstudio
+# Edit at https://www.toptal.com/developers/gitignore?templates=c,visualstudio
+
+### C ###
+# Prerequisites
 *.d
 
 # Object files
@@ -446,4 +450,6 @@ FodyWeavers.xsd
 *.sln.iml
 
 ### VisualStudio Patch ###
-/.vs/학생해시/v17/Browse.VC.db
+# Additional files built by Visual Studio
+
+# End of https://www.toptal.com/developers/gitignore/api/c,visualstudio
