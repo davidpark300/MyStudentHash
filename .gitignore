@@ -446,3 +446,4 @@ FodyWeavers.xsd
 *.sln.iml
 
 ### VisualStudio Patch ###
+/.vs/학생해시/v17/Browse.VC.db

@@ -79,51 +79,6 @@ void hash_chain_change(int key, int change_value) {
 
 }
 
-// csv 파일 읽어와서 해시에 등록할 수 있도록 값 저장하는 함수, 폐기
-void csv_data_read() {
-	FILE* fpr;
-	char str[DATA_SIZE];
-	element items;
-
-	if ((fpr = fopen("studentData.csv", "r+")) == NULL) {
-		printf("파일 읽기 오류\n");
-		fclose(fpr);
-		return;
-	}
-
-	fgets(str, DATA_SIZE, fpr);	// 파일에서 문자열을 가져오는 함수
-
-	char* sub = strtok(str, ",");
-
-	while (1) {
-		fgets(str, DATA_SIZE, fpr);
-		sub = strtok(str, ",");
-		items.key = atoi(sub);	// csv 파일의 학번 저장
-		//printf("%d || ", atoi(sub));
-
-		sub = strtok(NULL, ",");
-		if (sub == NULL) {
-			items.key = 0;
-			//printf("데이터 없음\n");
-			return;
-		}
-		strcpy(items.name, sub);	// csv 파일의 이름 저장
-		//printf("%s || ", sub);
-
-		sub = strtok(NULL, ",");
-		items.phone_number = atoi(sub);	// csv 파일의 핸드폰 번호 저장
-		//printf("%d || ", atoi(sub));
-		//printf("\n");
-
-		sub = strtok(NULL, ",");
-		//strcpy(items.late, sub);
-
-
-		hash_chain_add(items, hash_table);
-	}
-	fclose(fpr);
-}
-
 void json_file_reading() {
 	element data;
 
