@@ -5,11 +5,11 @@
             "name": "ParkJunMin",
             "phoneNumber": 1030009415,
             "dueDateOverNumber": 0,
-            "dueDateOverCheck": 0
+            "dueDateOverCheck": 1
         },
         {
             "studentNumber": 2171115,
-            "name": "HondSungHwan",
+            "name": "HongSungHwan",
             "phoneNumber": 1041618190,
             "dueDateOverNumber": 0
         },
