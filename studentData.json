@@ -5,31 +5,35 @@
             "name": "ParkJunMin",
             "phoneNumber": 1030009415,
             "dueDateOverNumber": 0,
-            "dueDateOverCheck": 1
+            "dueDateOverCheck": 0
         },
         {
             "studentNumber": 2171115,
             "name": "HongSungHwan",
             "phoneNumber": 1041618190,
-            "dueDateOverNumber": 0
+            "dueDateOverNumber": 0,
+            "dueDateOverCheck": 0
         },
         {
             "studentNumber": 2071478,
             "name": "UmSaeYeon",
             "phoneNumber": 1094874630,
-            "dueDateOverNumber": 0
+            "dueDateOverNumber": 0,
+            "dueDateOverCheck": 0
         },
         {
             "studentNumber": 2171117,
             "name": "ChaeSungJun",
             "phoneNumber": 1033804283,
-            "dueDateOverNumber": 0
+            "dueDateOverNumber": 0,
+            "dueDateOverCheck": 0
         },
         {
             "studentNumber": 2371041,
             "name": "LeeSooYeon",
             "phoneNumber": 1031652256,
-            "dueDateOverNumber": 0
+            "dueDateOverNumber": 0,
+            "dueDateOverCheck": 0
         }
     ]
 }
