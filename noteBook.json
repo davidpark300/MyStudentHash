@@ -1,0 +1,16 @@
+{
+    "noteBookInfo": [
+        {
+            "borrowNoteBook": "LenovaNoteBook",
+            "brokenNum" : 3
+        },
+        {
+            "borrowNoteBook": "AppleNoteBook",
+            "brokenNum" : 0
+        },
+        {
+            "borrowNoteBook": "SamsungNoteBook",
+            "brokenNum" : 0
+        }
+    ]
+}
