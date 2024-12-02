@@ -430,6 +430,23 @@ void student_borrow_noteBook(QueueType* queue, int student_num, int current_day)
 	data.broken = noteBookData.brokenNumber;
 	data.day = current_day;
 	hash_chain_borrow_add(data, hash_table_borrow);
+	JSON_Value* root_Value = json_parse_file("borrowList.json");
+	JSON_Object* root_Object = json_value_get_object(root_Value);
+
+	JSON_Array* data_Array = json_object_get_array(root_Object, "borrowInfo");
+	size_t array_size = json_array_get_count(data_Array);
+
+	JSON_Value* borrowList_data = json_value_init_object();
+	JSON_Object* borrowList_object = json_value_get_object(borrowList_data);
+
+	json_object_set_number(borrowList_object, "studentNumber", student_num);
+	json_object_set_string(borrowList_object, "noteBookName", noteBookData.noteBookName);
+	json_object_set_number(borrowList_object, "brokenNum", noteBookData.brokenNumber);
+	json_object_set_number(borrowList_object, "borrowDay", current_day);
+
+	json_array_append_value(data_Array, borrowList_data);
+	json_serialize_to_file_pretty(root_Value, "borrowList.json");
+	json_value_free(root_Value);
 	printf("=======================================\n");
 	printf("대여자 학번 : %d / 대여된 노트북 : %s / 반납 기한은 1개월 입니다.\n", student_num, data.name);
 	printf("=======================================\n\n");
@@ -489,6 +506,18 @@ void student_return_noteBook(QueueType* queue, int student_num, int current_day)
 	noteBook noteBookData;
 	strcpy(noteBookData.noteBookName, item.name);
 	noteBookData.brokenNumber = item.broken;
+
+	JSON_Value* root_Value = json_parse_file("borrowList.json");
+	JSON_Object* root_Object = json_value_get_object(root_Value);
+
+	JSON_Array* borrow_Array = json_object_get_array(root_Object, "borrowInfo");
+	size_t index = json_file_find_index(student_num, borrow_Array);
+
+	json_array_remove(borrow_Array, index);
+
+	json_serialize_to_file_pretty(root_Value, "borrowList.json");
+	json_value_free(root_Value);
+
 	if (!is_full(queue)) {
 		enqueue(queue, noteBookData);
 	}

@@ -2,8 +2,8 @@
     "blackListInfo": [
         {
             "studentNumber": 2171115,
-            "limitStartDay": 0,
-            "borrowLimitDay": 60
+            "limitStartDay": 340,
+            "borrowLimitDay": 55
         }
     ]
 }
