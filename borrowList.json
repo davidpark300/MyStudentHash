@@ -4,13 +4,7 @@
             "studentNumber": 2076666,
             "noteBookName": "SampleNoteBook",
             "brokenNum": 2,
-            "borrowDay": 346
-        },
-        {
-            "studentNumber": 2171115,
-            "noteBookName": "AppleNoteBook",
-            "brokenNum": 0,
-            "borrowDay": 336
+            "borrowStartDay": 346
         }
     ]
 }

@@ -442,7 +442,7 @@ void student_borrow_noteBook(QueueType* queue, int student_num, int current_day)
 	json_object_set_number(borrowList_object, "studentNumber", student_num);
 	json_object_set_string(borrowList_object, "noteBookName", noteBookData.noteBookName);
 	json_object_set_number(borrowList_object, "brokenNum", noteBookData.brokenNumber);
-	json_object_set_number(borrowList_object, "borrowDay", current_day);
+	json_object_set_number(borrowList_object, "borrowStartDay", current_day);
 
 	json_array_append_value(data_Array, borrowList_data);
 	json_serialize_to_file_pretty(root_Value, "borrowList.json");
